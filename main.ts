@@ -1,5 +1,21 @@
+input.onButtonPressed(Button.A, function () {
+    basic.showString("A")
+    player_a += 1
+})
+input.onButtonPressed(Button.AB, function () {
+    basic.showString("C")
+    ties += 1
+})
+input.onButtonPressed(Button.B, function () {
+    basic.showString("B")
+    player_b += 1
+})
 input.onGesture(Gesture.Shake, function () {
     reset()
+})
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    round += 1
+    basic.showString("D")
 })
 function reset () {
     OLED.init(128, 64)
@@ -22,7 +38,7 @@ function updatescoreboard () {
     OLED.writeStringNewLine("round: " + round)
 }
 let round = 0
-let ties = 0
 let player_b = 0
+let ties = 0
 let player_a = 0
 reset()
